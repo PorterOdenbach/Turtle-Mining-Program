@@ -3,7 +3,7 @@
 
 local scanner = peripheral.find('geoScanner')
 local posx, posy, posz = 0, 0, 0
-local ores = {}
+local ores = {'minecraft:iron_ore'}
 
 local tArgs = { ... }
 if #tArgs ~= 2 then
@@ -157,4 +157,11 @@ end
     end
 end]]
 
-moveTo(10, 10, 10)
+local scans = scanBlocks(range)
+local cx, cy, cz, error = findClosestOre(scans)
+if error then 
+    print('Error:')
+    print(scans)
+    return
+end
+moveTo(cx, cy, cz)
