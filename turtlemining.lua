@@ -169,3 +169,4 @@ if error then
     return
 end
 moveTo(cx, cy, cz)
+moveTo(posx, posy, posz)
