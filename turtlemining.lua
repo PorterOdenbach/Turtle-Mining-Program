@@ -166,4 +166,4 @@ if error then
     print(scans)
     return
 end
-moveTo(cx, cy, cz)
+moveTo(cz, cy, cx)
