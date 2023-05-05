@@ -86,6 +86,24 @@ end
 local function moveTo(lx, ly, lz)
     turnNorth(dir)
     checkFuel()
+    if ly > 0 then
+        for i = 1, math.abs(ly) do
+            turtle.digUp()
+            turtle.up()
+            checkFuel()
+            fullInv()
+            posy = posy - 1
+        end
+    elseif ly < 0 then
+        for i = 1, math.abs(ly) do
+            turtle.digDown()
+            turtle.down()
+            checkFuel()
+            fullInv()
+            posy = posy + 1
+        end
+    end
+    
     if lz < 0 then
         turtle.turnLeft()
         turtle.turnLeft()
@@ -129,23 +147,6 @@ local function moveTo(lx, ly, lz)
         end
     end
     turnNorth(dir)
-    if ly > 0 then
-        for i = 1, math.abs(ly) do
-            turtle.digUp()
-            turtle.up()
-            checkFuel()
-            fullInv()
-            posy = posy - 1
-        end
-    elseif ly < 0 then
-        for i = 1, math.abs(ly) do
-            turtle.digDown()
-            turtle.down()
-            checkFuel()
-            fullInv()
-            posy = posy + 1
-        end
-    end
 end
 
 --[[while true do
