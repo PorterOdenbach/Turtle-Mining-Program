@@ -86,7 +86,7 @@ end
 local function moveTo(lx, ly, lz)
     turnNorth(dir)
     checkFuel()
-    if lz < 0 then
+    if lz > 0 then
         turtle.turnLeft()
         turtle.turnLeft()
         dir = 2
@@ -97,7 +97,7 @@ local function moveTo(lx, ly, lz)
             fullInv()
             posz = posz + 1
         end
-    elseif lz > 0 then
+    elseif lz < 0 then
         for i = 1, math.abs(lz) do
             turtle.dig()
             turtle.forward()
@@ -149,6 +149,7 @@ local function moveTo(lx, ly, lz)
 end
 
 --[[while true do
+    turtle.refuel()
     local scans = scanBlocks(range)
     local cx, cy, cz, error = findClosestOre(scans)
     if error then 
@@ -158,6 +159,7 @@ end
     end
 end]]
 
+turtle.refuel()
 local scans = scanBlocks(range)
 local cx, cy, cz, error = findClosestOre(scans)
 if error then 
@@ -166,4 +168,4 @@ if error then
     print(scans)
     return
 end
-moveTo(cz, cy, cx)
+moveTo(cx, cy, cz)
