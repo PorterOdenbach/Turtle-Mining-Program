@@ -95,7 +95,7 @@ local function moveTo(lx, ly, lz)
             turtle.forward()
             checkFuel()
             fullInv()
-            posz = posz - 1
+            posz = posz + 1
         end
     elseif lz > 0 then
         for i = 1, math.abs(lz) do
@@ -103,7 +103,7 @@ local function moveTo(lx, ly, lz)
             turtle.forward()
             checkFuel()
             fullInv()
-            posz = posz + 1
+            posz = posz - 1
         end
     end
     turnNorth(dir)
