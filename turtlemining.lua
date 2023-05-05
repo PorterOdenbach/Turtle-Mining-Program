@@ -86,7 +86,7 @@ end
 local function moveTo(lx, ly, lz)
     turnNorth(dir)
     checkFuel()
-    if lz > 0 then
+    if lz < 0 then
         turtle.turnLeft()
         turtle.turnLeft()
         dir = 2
@@ -97,7 +97,7 @@ local function moveTo(lx, ly, lz)
             fullInv()
             posz = posz + 1
         end
-    elseif lz < 0 then
+    elseif lz > 0 then
         for i = 1, math.abs(lz) do
             turtle.dig()
             turtle.forward()
