@@ -44,7 +44,7 @@ local function findClosestOre(scannedBlocks)
                 print(i.x .. i.y .. i.z)
                 local distanceOld = math.sqrt(nx*nx+ny*ny+nz*nz)
                 local distanceNew = math.sqrt(i.x*i.x+i.y*i.y+i.z*i.z)
-                if (distanceOld > distanceNew) and (i.x ~= 0 and i.y ~= 0 and i.z ~= 0) then
+                if (distanceOld > distanceNew) and not(i.x == 0 and i.y == 0 and i.z == 0) then
                     nx, ny, nz = i.x, i.y, i.z
                 end
             end
