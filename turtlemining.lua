@@ -45,7 +45,7 @@ local function findClosestOre(scannedBlocks)
                 local distanceOld = math.sqrt(nx*nx+ny*ny+nz*nz)
                 local distanceNew = math.sqrt(i.x*i.x+i.y*i.y+i.z*i.z)
                 if (distanceOld > distanceNew) and not(i.x == 0 and i.y == 0 and i.z == 0) then
-                    nx, ny, nz = i.x, i.y, i.z
+                    nx, ny, nz = i.x, i.y, i.z*-1
                 end
             end
         end
@@ -62,7 +62,7 @@ local function turnNorth(direc)
     elseif direc == 2 then
         turtle.turnLeft()
         turtle.turnLeft()
-    else
+    elseif direc == 3 then
         turtle.turnRight()
     end
     dir = 0
@@ -161,7 +161,7 @@ end]]
 
 turtle.refuel()
 local scans = scanBlocks(range)
-local cz, cy, cx, error = findClosestOre(scans)
+local cx, cy, cz, error = findClosestOre(scans)
 if error then 
     print('Error:')
     print(error)
