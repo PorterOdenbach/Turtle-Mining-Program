@@ -106,8 +106,8 @@ local function moveTo(lx, ly, lz)
             posz = posz - 1
         end
     end
-
-    if lx < 0 then
+    turnNorth(dir)
+    if lx > 0 then
         turtle.turnRight()
         dir = 1
         for i = 1, math.abs(lx) do
@@ -128,7 +128,7 @@ local function moveTo(lx, ly, lz)
             posx = posx - 1
         end
     end
-
+    turnNorth(dir)
     if ly > 0 then
         for i = 1, math.abs(ly) do
             turtle.digUp()
