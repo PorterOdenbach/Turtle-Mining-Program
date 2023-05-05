@@ -95,7 +95,7 @@ local function moveTo(lx, ly, lz)
             turtle.forward()
             checkFuel()
             fullInv()
-            posz = posz + 1
+            posz = posz - 1
         end
     elseif lz > 0 then
         for i = 1, math.abs(lz) do
@@ -103,7 +103,7 @@ local function moveTo(lx, ly, lz)
             turtle.forward()
             checkFuel()
             fullInv()
-            posz = posz - 1
+            posz = posz + 1
         end
     end
     turnNorth(dir)
@@ -115,7 +115,7 @@ local function moveTo(lx, ly, lz)
             turtle.forward()
             checkFuel()
             fullInv()
-            posx = posx + 1
+            posx = posx - 1
         end
     elseif lx < 0 then
         turtle.turnLeft()
@@ -125,7 +125,7 @@ local function moveTo(lx, ly, lz)
             turtle.forward()
             checkFuel()
             fullInv()
-            posx = posx - 1
+            posx = posx + 1
         end
     end
     turnNorth(dir)
@@ -135,7 +135,7 @@ local function moveTo(lx, ly, lz)
             turtle.up()
             checkFuel()
             fullInv()
-            posy = posy + 1
+            posy = posy - 1
         end
     elseif ly < 0 then
         for i = 1, math.abs(ly) do
@@ -143,7 +143,7 @@ local function moveTo(lx, ly, lz)
             turtle.down()
             checkFuel()
             fullInv()
-            posy = posy - 1
+            posy = posy + 1
         end
     end
 end
