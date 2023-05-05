@@ -155,3 +155,5 @@ end
         return
     end
 end]]
+
+moveTo(10, 10, 10)
