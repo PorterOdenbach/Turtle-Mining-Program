@@ -5,7 +5,8 @@ local scanner = peripheral.find('geoScanner')
 local posx, posy, posz = 0, 0, 0
 local ores = {}
 
-if #tArgs ~= 1 then
+local tArgs = { ... }
+if #tArgs ~= 2 then
     print('Usage: <program name> <scanner range>')
     return
 end
@@ -84,7 +85,7 @@ end
 local function moveTo(lx, ly, lz)
     turnNorth(dir)
     checkFuel()
-    if lz > 0 then
+    if lz < 0 then
         turtle.turnLeft()
         turtle.turnLeft()
         dir = 2
@@ -95,7 +96,7 @@ local function moveTo(lx, ly, lz)
             fullInv()
             posz = posz + 1
         end
-    elseif lz < 0 then
+    elseif lz > 0 then
         for i = 1, math.abs(lz) do
             turtle.dig()
             turtle.forward()
@@ -105,7 +106,7 @@ local function moveTo(lx, ly, lz)
         end
     end
 
-    if lx > 0 then
+    if lx < 0 then
         turtle.turnRight()
         dir = 1
         for i = 1, math.abs(lx) do
@@ -115,7 +116,7 @@ local function moveTo(lx, ly, lz)
             fullInv()
             posx = posx + 1
         end
-    elseif lx < 0 then
+    elseif lx > 0 then
         turtle.turnLeft()
         dir = 3
         for i = 1, math.abs(lx) do
@@ -127,7 +128,7 @@ local function moveTo(lx, ly, lz)
         end
     end
 
-    if ly > 0 then
+    if ly < 0 then
         for i = 1, math.abs(ly) do
             turtle.digUp()
             turtle.up()
@@ -135,7 +136,7 @@ local function moveTo(lx, ly, lz)
             fullInv()
             posy = posy + 1
         end
-    elseif ly < 0 then
+    elseif ly > 0 then
         for i = 1, math.abs(ly) do
             turtle.digDown()
             turtle.down()
