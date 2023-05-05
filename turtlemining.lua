@@ -107,7 +107,7 @@ local function moveTo(lx, ly, lz)
         end
     end
 
-    if lx > 0 then
+    if lx < 0 then
         turtle.turnRight()
         dir = 1
         for i = 1, math.abs(lx) do
