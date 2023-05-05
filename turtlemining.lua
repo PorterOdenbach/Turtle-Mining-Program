@@ -161,7 +161,7 @@ end]]
 
 turtle.refuel()
 local scans = scanBlocks(range)
-local cx, cy, cz, error = findClosestOre(scans)
+local cz, cy, cx, error = findClosestOre(scans)
 if error then 
     print('Error:')
     print(error)
