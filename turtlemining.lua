@@ -35,12 +35,13 @@ end
 local function findClosestOre(scannedBlocks)
     local nx, ny, nz = 100, 100, 100
     local count = 0
-    if type(scannedBlocks) == 'string' then
+    if type(scannedBlocks) ~= 'table' then
         return nil, nil, nil, 'scannedBlocks'
     else
         for _,i in pairs(scannedBlocks) do
             if inList(i.name, ores) then
-                local count = 1
+                count = 1
+                print(i.x .. i.y .. i.z)
                 local distanceOld = math.sqrt(nx*nx+ny*ny+nz*nz)
                 local distanceNew = math.sqrt(i.x*i.x+i.y*i.y+i.z*i.z)
                 if (distanceOld > distanceNew) and (i.x ~= 0 and i.y ~= 0 and i.z ~= 0) then
@@ -161,6 +162,7 @@ local scans = scanBlocks(range)
 local cx, cy, cz, error = findClosestOre(scans)
 if error then 
     print('Error:')
+    print(error)
     print(scans)
     return
 end
