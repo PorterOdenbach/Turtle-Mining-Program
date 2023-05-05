@@ -107,7 +107,7 @@ local function moveTo(lx, ly, lz)
         end
     end
 
-    if lx < 0 then
+    if lx > 0 then
         turtle.turnRight()
         dir = 1
         for i = 1, math.abs(lx) do
@@ -117,7 +117,7 @@ local function moveTo(lx, ly, lz)
             fullInv()
             posx = posx + 1
         end
-    elseif lx > 0 then
+    elseif lx < 0 then
         turtle.turnLeft()
         dir = 3
         for i = 1, math.abs(lx) do
@@ -129,7 +129,7 @@ local function moveTo(lx, ly, lz)
         end
     end
 
-    if ly < 0 then
+    if ly > 0 then
         for i = 1, math.abs(ly) do
             turtle.digUp()
             turtle.up()
@@ -137,7 +137,7 @@ local function moveTo(lx, ly, lz)
             fullInv()
             posy = posy + 1
         end
-    elseif ly > 0 then
+    elseif ly < 0 then
         for i = 1, math.abs(ly) do
             turtle.digDown()
             turtle.down()
